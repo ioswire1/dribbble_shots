@@ -58,14 +58,11 @@
 		8519863D1C013566008674BF /* Dribbble Shots */ = {
 			isa = PBXGroup;
 			children = (
-				851986411C013566008674BF /* AppDelegate.h */,
-				851986421C013566008674BF /* AppDelegate.m */,
 				851986441C013566008674BF /* ViewController.h */,
 				851986451C013566008674BF /* ViewController.m */,
 				851986471C013566008674BF /* Main.storyboard */,
 				8519864A1C013566008674BF /* Assets.xcassets */,
 				8519864C1C013566008674BF /* LaunchScreen.storyboard */,
-				8519864F1C013566008674BF /* Info.plist */,
 				8519863E1C013566008674BF /* Supporting Files */,
 			);
 			path = "Dribbble Shots";
@@ -74,6 +71,9 @@
 		8519863E1C013566008674BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				851986411C013566008674BF /* AppDelegate.h */,
+				851986421C013566008674BF /* AppDelegate.m */,
+				8519864F1C013566008674BF /* Info.plist */,
 				8519863F1C013566008674BF /* main.m */,
 			);
 			name = "Supporting Files";
