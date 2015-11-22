@@ -13,6 +13,9 @@
 		851986491C013566008674BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851986471C013566008674BF /* Main.storyboard */; };
 		8519864B1C013566008674BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8519864A1C013566008674BF /* Assets.xcassets */; };
 		8519864E1C013566008674BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8519864C1C013566008674BF /* LaunchScreen.storyboard */; };
+		851986591C0136F6008674BF /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986581C0136F6008674BF /* Shot.m */; };
+		8519865C1C013840008674BF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519865B1C013840008674BF /* Image.m */; };
+		8519865F1C013991008674BF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519865E1C013991008674BF /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		8519864A1C013566008674BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8519864D1C013566008674BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8519864F1C013566008674BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		851986571C0136F6008674BF /* Shot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shot.h; sourceTree = "<group>"; };
+		851986581C0136F6008674BF /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
+		8519865A1C013840008674BF /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		8519865B1C013840008674BF /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		8519865D1C013991008674BF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8519865E1C013991008674BF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,7 @@
 			children = (
 				851986441C013566008674BF /* ViewController.h */,
 				851986451C013566008674BF /* ViewController.m */,
+				851986561C0136DE008674BF /* Model */,
 				851986471C013566008674BF /* Main.storyboard */,
 				8519864A1C013566008674BF /* Assets.xcassets */,
 				8519864C1C013566008674BF /* LaunchScreen.storyboard */,
@@ -77,6 +87,19 @@
 				8519863F1C013566008674BF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		851986561C0136DE008674BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				851986571C0136F6008674BF /* Shot.h */,
+				851986581C0136F6008674BF /* Shot.m */,
+				8519865A1C013840008674BF /* Image.h */,
+				8519865B1C013840008674BF /* Image.m */,
+				8519865D1C013991008674BF /* User.h */,
+				8519865E1C013991008674BF /* User.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +174,10 @@
 			files = (
 				851986461C013566008674BF /* ViewController.m in Sources */,
 				851986431C013566008674BF /* AppDelegate.m in Sources */,
+				8519865F1C013991008674BF /* User.m in Sources */,
 				851986401C013566008674BF /* main.m in Sources */,
+				851986591C0136F6008674BF /* Shot.m in Sources */,
+				8519865C1C013840008674BF /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
