@@ -10,4 +10,14 @@
 
 @implementation Shot
 
+- (instancetype)initWithId:(NSInteger)id title:(NSString *)title image:(Image *)image {
+    self = [super init];
+    if (self) {
+        _id = id;
+        _title = title;
+        _image = image;
+    }
+    return self;
+}
+
 @end

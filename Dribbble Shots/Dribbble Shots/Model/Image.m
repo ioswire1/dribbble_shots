@@ -10,4 +10,14 @@
 
 @implementation Image
 
+- (instancetype)initWithLinkToImage:(NSString *)linkToImage {
+    self = [super init];
+    if (self) {
+        _hidpi = linkToImage;
+        _normal = linkToImage;
+        _teaser = linkToImage;
+    }
+    return self;
+}
+
 @end

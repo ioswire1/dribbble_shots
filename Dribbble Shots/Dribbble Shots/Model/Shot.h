@@ -21,4 +21,6 @@
 @property (nonatomic) BOOL animated;
 @property (nonatomic, strong) User *user;
 
+- (instancetype)initWithId:(NSInteger)id title:(NSString *)title image:(Image *)image;//Please do not rely to this method we added this method only in the very begining for creating stubs
+
 @end

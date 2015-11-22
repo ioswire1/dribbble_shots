@@ -16,6 +16,9 @@
 		851986591C0136F6008674BF /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986581C0136F6008674BF /* Shot.m */; };
 		8519865C1C013840008674BF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519865B1C013840008674BF /* Image.m */; };
 		8519865F1C013991008674BF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519865E1C013991008674BF /* User.m */; };
+		851986631C01413D008674BF /* DribbbleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986621C01413D008674BF /* DribbbleAPIClient.m */; };
+		851986661C0146C5008674BF /* DribbbleAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986651C0146C5008674BF /* DribbbleAPIService.m */; };
+		851986691C0146F7008674BF /* DribbbleClientSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986681C0146F7008674BF /* DribbbleClientSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,12 @@
 		8519865B1C013840008674BF /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		8519865D1C013991008674BF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		8519865E1C013991008674BF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		851986611C01413D008674BF /* DribbbleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleAPIClient.h; sourceTree = "<group>"; };
+		851986621C01413D008674BF /* DribbbleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleAPIClient.m; sourceTree = "<group>"; };
+		851986641C0146C5008674BF /* DribbbleAPIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleAPIService.h; sourceTree = "<group>"; };
+		851986651C0146C5008674BF /* DribbbleAPIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleAPIService.m; sourceTree = "<group>"; };
+		851986671C0146F7008674BF /* DribbbleClientSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleClientSettings.h; sourceTree = "<group>"; };
+		851986681C0146F7008674BF /* DribbbleClientSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleClientSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,7 @@
 		8519863D1C013566008674BF /* Dribbble Shots */ = {
 			isa = PBXGroup;
 			children = (
+				851986601C014127008674BF /* DribbbleAPI */,
 				851986441C013566008674BF /* ViewController.h */,
 				851986451C013566008674BF /* ViewController.m */,
 				851986561C0136DE008674BF /* Model */,
@@ -100,6 +110,19 @@
 				8519865E1C013991008674BF /* User.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		851986601C014127008674BF /* DribbbleAPI */ = {
+			isa = PBXGroup;
+			children = (
+				851986611C01413D008674BF /* DribbbleAPIClient.h */,
+				851986621C01413D008674BF /* DribbbleAPIClient.m */,
+				851986641C0146C5008674BF /* DribbbleAPIService.h */,
+				851986651C0146C5008674BF /* DribbbleAPIService.m */,
+				851986671C0146F7008674BF /* DribbbleClientSettings.h */,
+				851986681C0146F7008674BF /* DribbbleClientSettings.m */,
+			);
+			path = DribbbleAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851986661C0146C5008674BF /* DribbbleAPIService.m in Sources */,
 				851986461C013566008674BF /* ViewController.m in Sources */,
 				851986431C013566008674BF /* AppDelegate.m in Sources */,
+				851986691C0146F7008674BF /* DribbbleClientSettings.m in Sources */,
+				851986631C01413D008674BF /* DribbbleAPIClient.m in Sources */,
 				8519865F1C013991008674BF /* User.m in Sources */,
 				851986401C013566008674BF /* main.m in Sources */,
 				851986591C0136F6008674BF /* Shot.m in Sources */,

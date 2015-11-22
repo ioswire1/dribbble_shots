@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSString *normal;
 @property (nonatomic, strong) NSString *teaser;
 
+- (instancetype)initWithLinkToImage:(NSString *)linkToImage; //Please do not rely to this method we added this method only in the very begining for creating stubs
+
 @end
