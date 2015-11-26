@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		851986401C013566008674BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519863F1C013566008674BF /* main.m */; };
 		851986431C013566008674BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986421C013566008674BF /* AppDelegate.m */; };
-		851986461C013566008674BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986451C013566008674BF /* ViewController.m */; };
 		851986491C013566008674BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851986471C013566008674BF /* Main.storyboard */; };
 		8519864B1C013566008674BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8519864A1C013566008674BF /* Assets.xcassets */; };
 		8519864E1C013566008674BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8519864C1C013566008674BF /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		851986631C01413D008674BF /* DribbbleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986621C01413D008674BF /* DribbbleAPIClient.m */; };
 		851986661C0146C5008674BF /* DribbbleAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986651C0146C5008674BF /* DribbbleAPIService.m */; };
 		851986691C0146F7008674BF /* DribbbleClientSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986681C0146F7008674BF /* DribbbleClientSettings.m */; };
+		8519868E1C072F44008674BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519868D1C072F44008674BF /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,6 @@
 		8519863F1C013566008674BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		851986411C013566008674BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		851986421C013566008674BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		851986441C013566008674BF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		851986451C013566008674BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		851986481C013566008674BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8519864A1C013566008674BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8519864D1C013566008674BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		851986651C0146C5008674BF /* DribbbleAPIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleAPIService.m; sourceTree = "<group>"; };
 		851986671C0146F7008674BF /* DribbbleClientSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleClientSettings.h; sourceTree = "<group>"; };
 		851986681C0146F7008674BF /* DribbbleClientSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleClientSettings.m; sourceTree = "<group>"; };
+		8519868C1C072F44008674BF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8519868D1C072F44008674BF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +76,8 @@
 		8519863D1C013566008674BF /* Dribbble Shots */ = {
 			isa = PBXGroup;
 			children = (
+				8519868B1C072F44008674BF /* Controller */,
 				851986601C014127008674BF /* DribbbleAPI */,
-				851986441C013566008674BF /* ViewController.h */,
-				851986451C013566008674BF /* ViewController.m */,
 				851986561C0136DE008674BF /* Model */,
 				851986471C013566008674BF /* Main.storyboard */,
 				8519864A1C013566008674BF /* Assets.xcassets */,
@@ -123,6 +122,15 @@
 				851986681C0146F7008674BF /* DribbbleClientSettings.m */,
 			);
 			path = DribbbleAPI;
+			sourceTree = "<group>";
+		};
+		8519868B1C072F44008674BF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8519868C1C072F44008674BF /* ViewController.h */,
+				8519868D1C072F44008674BF /* ViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				851986661C0146C5008674BF /* DribbbleAPIService.m in Sources */,
-				851986461C013566008674BF /* ViewController.m in Sources */,
 				851986431C013566008674BF /* AppDelegate.m in Sources */,
 				851986691C0146F7008674BF /* DribbbleClientSettings.m in Sources */,
+				8519868E1C072F44008674BF /* ViewController.m in Sources */,
 				851986631C01413D008674BF /* DribbbleAPIClient.m in Sources */,
 				8519865F1C013991008674BF /* User.m in Sources */,
 				851986401C013566008674BF /* main.m in Sources */,
@@ -352,6 +360,7 @@
 				851986541C013566008674BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
