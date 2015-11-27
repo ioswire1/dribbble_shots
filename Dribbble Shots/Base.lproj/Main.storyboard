@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lL6-pd-d4J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lL6-pd-d4J">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Dddribbble-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Dribbble-->
+        <scene sceneID="kg6-Do-Z1j">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                <collectionViewController id="SRV-2y-5g7" customClass="MainController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ARr-BP-y7Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Dddribbble" id="U1c-29-JgW">
-                        <barButtonItem key="rightBarButtonItem" image="more" id="zlX-dq-H6Y">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OzZ-NP-B3I">
+                            <size key="itemSize" width="113" height="145"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EfM-8a-yXz">
+                                <rect key="frame" x="0.0" y="64" width="113" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="113" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="SRV-2y-5g7" id="Sl4-Rl-dZO"/>
+                            <outlet property="delegate" destination="SRV-2y-5g7" id="gSP-HO-bAE"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Dribbble" id="HF5-zu-wXr">
+                        <barButtonItem key="rightBarButtonItem" image="more" id="aBf-yf-gdf">
                             <connections>
-                                <action selector="showMenu:" destination="BYZ-38-t0r" id="rAE-IJ-KvT"/>
+                                <action selector="showMenu:" destination="SRV-2y-5g7" id="VqF-O9-ppL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="FZM-Nv-jtY" kind="show" identifier="Show Login" id="OYw-AD-WE4"/>
+                        <segue destination="FZM-Nv-jtY" kind="push" identifier="Show Login" id="hCl-xC-GkY"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znz-tc-h9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="-78"/>
+            <point key="canvasLocation" x="686" y="-74"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="jmO-aC-hyP">
@@ -46,11 +61,11 @@
                         <viewControllerLayoutGuide type="bottom" id="S0s-79-12y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CPm-uy-nFW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4o-Xo-rQs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
@@ -61,32 +76,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="B4o-Xo-rQs" secondAttribute="trailing" id="DDd-1Y-GEd"/>
                             <constraint firstItem="B4o-Xo-rQs" firstAttribute="leading" secondItem="CPm-uy-nFW" secondAttribute="leading" id="HIy-8n-e3u"/>
                             <constraint firstAttribute="trailing" secondItem="B4o-Xo-rQs" secondAttribute="trailing" id="YQB-uo-YEa"/>
                             <constraint firstItem="B4o-Xo-rQs" firstAttribute="top" secondItem="CPm-uy-nFW" secondAttribute="top" id="aia-V4-boO"/>
-                            <constraint firstItem="B4o-Xo-rQs" firstAttribute="leading" secondItem="CPm-uy-nFW" secondAttribute="leading" id="dvl-Ip-vyu"/>
                             <constraint firstAttribute="bottom" secondItem="B4o-Xo-rQs" secondAttribute="bottom" id="q9S-fn-aAn"/>
-                            <constraint firstItem="S0s-79-12y" firstAttribute="top" secondItem="B4o-Xo-rQs" secondAttribute="bottom" id="qtm-SD-uVj"/>
-                            <constraint firstItem="B4o-Xo-rQs" firstAttribute="top" secondItem="xwh-T8-cyz" secondAttribute="bottom" id="ul7-M2-Q27"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="DDd-1Y-GEd"/>
-                                <exclude reference="dvl-Ip-vyu"/>
-                                <exclude reference="ul7-M2-Q27"/>
-                                <exclude reference="qtm-SD-uVj"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationItem key="navigationItem" id="0kY-iD-waX"/>
                     <connections>
                         <outlet property="webView" destination="B4o-Xo-rQs" id="CQ2-7G-Hq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syO-KA-oKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1768" y="-78"/>
+            <point key="canvasLocation" x="1104" y="-74"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ggk-rV-6At">
@@ -100,12 +103,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TID-Ll-Y9B"/>
+                        <segue destination="SRV-2y-5g7" kind="relationship" relationship="rootViewController" id="392-Js-itg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pf-61-ncg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="-78"/>
+            <point key="canvasLocation" x="227.73333333333332" y="-73.840000000000003"/>
         </scene>
     </scenes>
     <resources>
