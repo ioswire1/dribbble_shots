@@ -15,9 +15,26 @@
     if (self) {
         _id = id;
         _title = title;
-        _image = image;
     }
     return self;
 }
+
+- (NSMutableDictionary *)imagesCollection {
+    if (!_imagesCollection) {
+        _imagesCollection = [@{} mutableCopy];
+    }
+    return _imagesCollection;
+}
+
+- (void)customMapping:(NSDictionary *)data {
+    if ([data valueForKey:@"images"]) {
+        id imagesData = [data valueForKey:@"images"];
+        if ([imagesData isKindOfClass:[NSDictionary class]]) {
+            self.imagesCollection = [imagesData mutableCopy];
+        }
+    }
+}
+
+
 
 @end

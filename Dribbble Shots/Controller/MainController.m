@@ -11,8 +11,12 @@
 #import "NSError+ShowWarning.h"
 #import "Constants.h"
 #import "NXOAuth2.h"
+#import "ShotCollectionCell.h"
+#import "Shot.h"
 
 @interface MainController ()
+
+@property (nonatomic, strong) NSMutableArray *shots;
 
 @end
 
@@ -34,18 +38,39 @@
     [self getShots];
 }
 
-
 - (void)getShots {
+    __weak typeof(self) wSelf = self;
     [DribbbleAPIService getShots:^(NSArray *shots, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [error showWarningInController:self];
             } else {
                 //TODO shots are available here
-                NSLog(@"%@", shots);
+                NSLog(@"shots.count: %ld", shots.count);
+                wSelf.shots = [shots mutableCopy];
+                [wSelf.collectionView reloadData];
             }
         });
     }];
+}
+
+#pragma mark UICollection datasource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.shots.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *reusableCellWithIdentifier = @"Shot Cell";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusableCellWithIdentifier forIndexPath:indexPath];
+    ShotCollectionCell *shotCell = (ShotCollectionCell *)cell;
+    
+    Shot *shot = self.shots[indexPath.row];
+    NSURL *url = [NSURL URLWithString:[shot.imagesCollection valueForKey:@"teaser"]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    shotCell.imageView.image = [UIImage imageWithData:data];
+    
+    return cell;
 }
 
 #pragma mark User's actions

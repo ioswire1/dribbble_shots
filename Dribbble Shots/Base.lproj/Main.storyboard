@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Dribbble-->
@@ -20,16 +21,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EfM-8a-yXz">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Shot Cell" id="EfM-8a-yXz" customClass="ShotCollectionCell">
                                 <rect key="frame" x="0.0" y="64" width="113" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="113" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3oq-3L-gOz">
+                                            <rect key="frame" x="8" y="8" width="97" height="129"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstItem="3oq-3L-gOz" firstAttribute="leading" secondItem="EfM-8a-yXz" secondAttribute="leadingMargin" id="6kk-Wu-cLe"/>
+                                    <constraint firstItem="3oq-3L-gOz" firstAttribute="top" secondItem="EfM-8a-yXz" secondAttribute="topMargin" id="bbx-p7-mqV"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="3oq-3L-gOz" secondAttribute="trailing" id="eFO-nK-gS0"/>
+                                    <constraint firstItem="3oq-3L-gOz" firstAttribute="bottom" secondItem="EfM-8a-yXz" secondAttribute="bottomMargin" id="f3E-g9-UWR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="3oq-3L-gOz" id="1bB-Rs-iTP"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

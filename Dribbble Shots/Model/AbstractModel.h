@@ -11,6 +11,7 @@
 @interface AbstractModel : NSObject
 
 - (instancetype)initFromDictionary:(NSDictionary *)dictionary;
+- (void)customMapping:(NSDictionary *)data;
 + (NSArray *)mapObjects:(id)data;
 
 @end

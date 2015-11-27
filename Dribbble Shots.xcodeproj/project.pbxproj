@@ -23,6 +23,7 @@
 		851986801C0684C6008674BF /* NSError+ShowWarning.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519867F1C0684C6008674BF /* NSError+ShowWarning.m */; };
 		851986871C069013008674BF /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986861C069013008674BF /* LoginController.m */; };
 		8519868A1C069037008674BF /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986891C069037008674BF /* MainController.m */; };
+		851986941C091D1F008674BF /* ShotCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 851986931C091D1F008674BF /* ShotCollectionCell.m */; };
 		B0115656A908970319CDAA1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EAEC3429D2CB2011033E7A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		851986861C069013008674BF /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		851986881C069037008674BF /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		851986891C069037008674BF /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		851986921C091D1F008674BF /* ShotCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotCollectionCell.h; sourceTree = "<group>"; };
+		851986931C091D1F008674BF /* ShotCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotCollectionCell.m; sourceTree = "<group>"; };
 		E2EAEC3429D2CB2011033E7A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,6 +192,8 @@
 				851986861C069013008674BF /* LoginController.m */,
 				851986881C069037008674BF /* MainController.h */,
 				851986891C069037008674BF /* MainController.m */,
+				851986921C091D1F008674BF /* ShotCollectionCell.h */,
+				851986931C091D1F008674BF /* ShotCollectionCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				851986661C0146C5008674BF /* DribbbleAPIService.m in Sources */,
+				851986941C091D1F008674BF /* ShotCollectionCell.m in Sources */,
 				851986431C013566008674BF /* AppDelegate.m in Sources */,
 				851986691C0146F7008674BF /* DribbbleClientSettings.m in Sources */,
 				851986631C01413D008674BF /* DribbbleAPIClient.m in Sources */,

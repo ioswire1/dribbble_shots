@@ -26,8 +26,13 @@
             }
         }
         free(properties);
+        
+        [self customMapping:dictionary];
     }
     return self;
+}
+    
+- (void)customMapping:(NSDictionary *)data {
 }
 
 + (NSArray *)mapObjects:(id)data {
