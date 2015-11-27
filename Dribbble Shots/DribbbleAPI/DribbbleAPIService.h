@@ -12,6 +12,7 @@
 @interface DribbbleAPIService : NSObject
 
 + (void)setSharedClientSettings:(DribbbleClientSettings *)settings;
++ (void)updateSharedClientSettings:(DribbbleClientSettings *)settings;
 + (void)getShots:(void (^)(NSArray *shots, NSError *error))completionHandler;
 
 @end

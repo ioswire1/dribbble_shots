@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="1239" y="-78"/>
         </scene>
-        <!--Title-->
+        <!--Login Controller-->
         <scene sceneID="jmO-aC-hyP">
             <objects>
                 <viewController id="FZM-Nv-jtY" customClass="LoginController" sceneMemberID="viewController">
@@ -50,21 +50,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4o-Xo-rQs">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="FZM-Nv-jtY" id="OWQ-cI-gAH"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="B4o-Xo-rQs" secondAttribute="trailing" id="DDd-1Y-GEd"/>
+                            <constraint firstItem="B4o-Xo-rQs" firstAttribute="leading" secondItem="CPm-uy-nFW" secondAttribute="leading" id="HIy-8n-e3u"/>
+                            <constraint firstAttribute="trailing" secondItem="B4o-Xo-rQs" secondAttribute="trailing" id="YQB-uo-YEa"/>
+                            <constraint firstItem="B4o-Xo-rQs" firstAttribute="top" secondItem="CPm-uy-nFW" secondAttribute="top" id="aia-V4-boO"/>
                             <constraint firstItem="B4o-Xo-rQs" firstAttribute="leading" secondItem="CPm-uy-nFW" secondAttribute="leading" id="dvl-Ip-vyu"/>
+                            <constraint firstAttribute="bottom" secondItem="B4o-Xo-rQs" secondAttribute="bottom" id="q9S-fn-aAn"/>
                             <constraint firstItem="S0s-79-12y" firstAttribute="top" secondItem="B4o-Xo-rQs" secondAttribute="bottom" id="qtm-SD-uVj"/>
                             <constraint firstItem="B4o-Xo-rQs" firstAttribute="top" secondItem="xwh-T8-cyz" secondAttribute="bottom" id="ul7-M2-Q27"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DDd-1Y-GEd"/>
+                                <exclude reference="dvl-Ip-vyu"/>
+                                <exclude reference="ul7-M2-Q27"/>
+                                <exclude reference="qtm-SD-uVj"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="vec-bb-ze7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="webView" destination="B4o-Xo-rQs" id="CQ2-7G-Hq9"/>

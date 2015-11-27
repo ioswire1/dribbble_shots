@@ -23,13 +23,18 @@
 @implementation DribbbleAPIService
 
 static DribbbleClientSettings *settings;
+static DribbbleAPIClient *sharedInstance;
 
 + (void)setSharedClientSettings:(DribbbleClientSettings *)dribbbleClientSettings {
     settings = dribbbleClientSettings;
 }
 
++ (void)updateSharedClientSettings:(DribbbleClientSettings *)dribbbleClientSettings {
+    settings = dribbbleClientSettings;
+    sharedInstance = [[DribbbleAPIClient alloc] initWithSettings:settings];
+}
+
 + (DribbbleAPIClient *)sharedClient {
-    static DribbbleAPIClient *sharedInstance = nil;
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[DribbbleAPIClient alloc] initWithSettings:settings];

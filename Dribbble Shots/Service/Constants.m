@@ -17,3 +17,4 @@ NSString *const kDribbbleAPIOAuth2AuthorizationURL = @"https://dribbble.com/oaut
 NSString *const kDribbbleAPIOAuth2TokenURL = @"https://dribbble.com/oauth/token";
 NSString *const kDribbbleAPIOAuth2RedirectURL = @"http://wire.org.ua/dribbble-callback";
 NSString *const kOAuthAccountType = @"DribbbleAuthorizeService";
+NSString *const kOAutheCookieDomain = @"dribbble.com";

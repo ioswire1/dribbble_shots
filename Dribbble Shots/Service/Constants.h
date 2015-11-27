@@ -19,3 +19,4 @@ extern NSString *const kDribbbleAPIOAuth2AuthorizationURL;
 extern NSString *const kDribbbleAPIOAuth2TokenURL;
 extern NSString *const kDribbbleAPIOAuth2RedirectURL;
 extern NSString *const kOAuthAccountType;
+extern NSString *const kOAutheCookieDomain;

@@ -10,7 +10,8 @@
 #import "Constants.h"
 #import "DribbbleAPIService.h"
 #import "DribbbleClientSettings.h"
-#import "NXOAuth2AccountStore.h"
+#import "NXOAuth2.h"
+#import "NSError+ShowWarning.h"
 
 @interface AppDelegate ()
 
@@ -61,9 +62,17 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
                                                       object:[NXOAuth2AccountStore sharedStore]
                                                        queue:nil
-                                                  usingBlock:^(NSNotification *aNotification){
-                                                      NSLog(@"%@", aNotification);
-                                                      // Update your UI
+                                                  usingBlock:^(NSNotification *aNotification) {
+                                                      NXOAuth2Account *account = [[NXOAuth2AccountStore sharedStore] accountsWithAccountType:kOAuthAccountType].firstObject;
+                                                      if (account) {
+                                                          NSString *accessToken = account.accessToken.accessToken;
+                                                          DribbbleClientSettings *settings = [[DribbbleClientSettings alloc] initWithApiEntryPoint:kDribbbleAPIEntryPoint
+                                                                                                                                       accessToken:accessToken];
+                                                          [DribbbleAPIService updateSharedClientSettings:settings];
+                                                      }
+                                                      
+                                                      AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                                                      [(UINavigationController *)appDelegate.window.rootViewController popToRootViewControllerAnimated:YES];
                                                   }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreDidFailToRequestAccessNotification
@@ -71,8 +80,9 @@
                                                        queue:nil
                                                   usingBlock:^(NSNotification *aNotification){
                                                       NSError *error = [aNotification.userInfo objectForKey:NXOAuth2AccountStoreErrorKey];
-                                                      NSLog(@"%@", error);
-                                                      // Do something with the error
+                                                      AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                                                      UIViewController *controller = (UINavigationController *)appDelegate.window.rootViewController;
+                                                      [error showWarningInController:controller];
                                                   }];
 }
 

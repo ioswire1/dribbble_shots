@@ -9,6 +9,8 @@
 #import "MainController.h"
 #import "DribbbleAPIService.h"
 #import "NSError+ShowWarning.h"
+#import "Constants.h"
+#import "NXOAuth2.h"
 
 @interface MainController ()
 
@@ -19,6 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self getShots];
+}
+
+
+- (void)getShots {
     [DribbbleAPIService getShots:^(NSArray *shots, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
@@ -31,12 +48,6 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark User's actions
 
 - (IBAction)showMenu:(UIBarButtonItem *)sender {
@@ -46,9 +57,25 @@
                                          message:nil
                                          preferredStyle:UIAlertControllerStyleActionSheet];
     [menuController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
-    [menuController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Login", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [wSelf performSegueWithIdentifier:@"Show Login" sender:nil];
-    }]];
+    NXOAuth2Account *account = [[NXOAuth2AccountStore sharedStore] accountsWithAccountType:kOAuthAccountType].firstObject;
+    if (account) {
+        [menuController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Logout", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            for (NXOAuth2Account *account in [[NXOAuth2AccountStore sharedStore] accountsWithAccountType:kOAuthAccountType]) {
+                [[NXOAuth2AccountStore sharedStore]  removeAccount:account];
+                
+                for(NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+                    if([[cookie domain] isEqualToString:kOAutheCookieDomain]) {
+                        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+                    }
+                }
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            };
+        }]];
+    } else {
+        [menuController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Login", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            [wSelf performSegueWithIdentifier:@"Show Login" sender:nil];
+        }]];
+    }
     
     [self presentViewController:menuController animated:YES completion:nil];
 }

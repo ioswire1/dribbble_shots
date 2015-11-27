@@ -44,4 +44,14 @@
     [error showWarningInController:self];
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSRange range = [request.URL.absoluteString rangeOfString:kDribbbleAPIOAuth2RedirectURL
+                                                                   options:NSCaseInsensitiveSearch];
+    if (range.location != NSNotFound) {
+        self.webView.hidden = YES;
+    }
+    
+    return YES;
+}
+
 @end
