@@ -17,6 +17,7 @@
 @interface MainController ()
 
 @property (nonatomic, strong) NSMutableArray *shots;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -25,6 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.collectionView.alwaysBounceVertical = YES;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(startRefresh)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:self.refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +47,10 @@
 }
 
 - (void)getShots {
+    [self getShots:nil];
+}
+
+- (void)getShots:(void(^)(void))success {
     __weak typeof(self) wSelf = self;
     [DribbbleAPIService getShots:^(NSArray *shots, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -49,8 +61,18 @@
                 NSLog(@"shots.count: %ld", shots.count);
                 wSelf.shots = [shots mutableCopy];
                 [wSelf.collectionView reloadData];
+                if (success) {
+                    success();
+                }
             }
         });
+    }];
+}
+
+- (void)startRefresh {
+    __weak typeof(self) wSelf = self;
+    [self getShots:^{
+        [wSelf.refreshControl endRefreshing];
     }];
 }
 
