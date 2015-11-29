@@ -12,6 +12,7 @@
 #import "DribbbleClientSettings.h"
 #import "NXOAuth2.h"
 #import "NSError+ShowWarning.h"
+#import "PDDebugger.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 
 @implementation AppDelegate
 
+static NSString *const kPonyDebuggURL = @"ws://127.0.0.1:9000/device";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -26,6 +28,13 @@
     DribbbleClientSettings *settings = [[DribbbleClientSettings alloc] initWithApiEntryPoint:kDribbbleAPIEntryPoint
                                                                                  accessToken:kDribbbleAPIClientAccessToken];
     [DribbbleAPIService setSharedClientSettings:settings];
+    
+    PDDebugger *debugger = [PDDebugger defaultInstance];
+    [debugger connectToURL:[NSURL URLWithString:kPonyDebuggURL]];
+    [debugger enableNetworkTrafficDebugging];
+    [debugger forwardAllNetworkTraffic];
+    [debugger enableCoreDataDebugging];
+    [debugger enableViewHierarchyDebugging];
     return YES;
 }
 
